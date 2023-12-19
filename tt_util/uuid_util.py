@@ -28,7 +28,7 @@ def edit_uuid(uuid_filename: Union[str, List[str]]):
 
 def edit_url(uuid_url: Union[str, List[str]]):
     """
-    把第一次文件夹给去掉
+    把第一层文件夹给去掉
     :param uuid_url: uuid url
     :return: 解析后的filename
     """

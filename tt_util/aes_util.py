@@ -50,11 +50,3 @@ def decrypt_aes(data: str, aes_key: str = ''):
     # 执行解密密并转码返回str
     decrypted_text = str(aes.decrypt(base64_decrypted), encoding='utf-8').replace('\0', '')
     return decrypted_text
-
-
-if __name__ == '__main__':
-    key = '12223'
-    data = 'hc刺激啊四神聪骄傲i'
-    encrypt = encrypt_aes(data, key)
-    print(encrypt)
-    print(decrypt_aes(encrypt, key))
