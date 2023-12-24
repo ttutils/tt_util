@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from .yaml_util import read_yaml
 
-from qiniu import put_file, Auth, BucketManager
+from qiniu import put_file, Auth, BucketManager, build_batch_delete
 
 
 class QiniuFunction(object):
@@ -27,4 +27,10 @@ class QiniuFunction(object):
     def delete_file(self, remote_file):
         bucket_manager = BucketManager(self.q)
         ret, info = bucket_manager.delete(self.bucket, remote_file)
+        return ret, info
+
+    def delete_files(self, remote_files):
+        bucket_manager = BucketManager(self.q)
+        ops = build_batch_delete(self.bucket, remote_files)
+        ret, info = bucket_manager.batch(ops)
         return ret, info
