@@ -1,15 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import logging
-import os
-import uuid
-
-from tt_util.uuid_util import edit_uuid
-from tt_util.yaml_util import read_yaml
+from .yaml_util import read_yaml
 
 from qiniu import put_file, Auth, BucketManager
-
-from api.base import resp_400
 
 
 class QiniuFunction(object):
