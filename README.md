@@ -72,11 +72,21 @@ ssh.close()
 
 aes非对称加密的各种封装方法，使用示例：
 
-```
+```python
 key = '12223'
 data = 'hc刺激啊四神聪骄傲i'
 encrypt = encrypt_aes(data, key)
 print(encrypt)
 print(decrypt_aes(encrypt, key))
+```
+
+- qiniu_util.py
+
+七牛云oss封装，使用示例：
+
+```python
+# 上传
+qiniu = QiniuFunction()
+ret, info = qiniu.upload_file(local_file, remote_file)
 ```
 
