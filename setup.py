@@ -11,7 +11,7 @@ with io.open("requirements.txt", 'r') as f:
 
 setup(
     name='tt_util',
-    version='1.0.8',
+    version='1.0.9',
     description='buyfakett自用的工具包',
     author='buyfakett',
     author_email='buyfakett@vip.qq.com',
