@@ -30,14 +30,21 @@ def check_file(directory: str, filename: str, max_checks: int = 60):
     checks = 0
 
     while checks < max_checks:
-        files = os.listdir(directory)
-        matched_files = [file for file in files if fnmatch.fnmatch(file, filename)]
-
-        if matched_files:
-            logging.info(f"当前为第{checks}次尝试，文件 {filename} 存在，继续执行！")
-            return True  # 如果文件存在，返回成功
-        else:
-            logging.info(f"当前为第{checks}次尝试，文件 {filename} 不存在，等待...")
+        # 检测文件夹本身是否存在
+        if not os.path.exists(directory):
+            logging.info(f"当前为第{checks}次尝试，文件夹 {directory} 不存在，等待...")
             time.sleep(5)
             checks += 1
+        else:
+            # 检测文件是否存在
+            files = os.listdir(directory)
+            matched_files = [file for file in files if fnmatch.fnmatch(file, filename)]
+
+            if matched_files:
+                logging.info(f"当前为第{checks}次尝试，文件 {filename} 存在，继续执行！")
+                return True  # 如果文件存在，返回成功
+            else:
+                logging.info(f"当前为第{checks}次尝试，文件 {filename} 不存在，等待...")
+                time.sleep(5)
+                checks += 1
     return False  # 达到最大检测次数后返回失败
