@@ -66,7 +66,13 @@ ssh.close()
 
 - exec_shell.py
 
-在当前运行的服务器上运行命令
+在当前运行的服务器上运行命令和在服务器上检测文件，使用示例：
+
+```python
+exec_shell('mkdir /test')
+
+check_file('/data', '1*')
+```
 
 - aes_util.py
 
