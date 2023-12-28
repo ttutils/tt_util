@@ -83,15 +83,14 @@ class SSHClient:
 
         while time.time() - start_time < timeout:
             sftp = self.client.open_sftp()
+            i = i + 1
 
             try:
-                i = i + 1
                 sftp.stat(remote_path)
                 logging.info(f"当前为第{i}次尝试，文件 {remote_path} 存在，可以执行下一步操作。")
                 sftp.close()
                 return True
             except FileNotFoundError:
-                i = i + 1
                 logging.info(f"当前为第{i}次尝试，文件 {remote_path} 不存在，等待...")
                 sftp.close()
                 time.sleep(5)  # 休眠5秒，可以根据需要调整休眠时间
