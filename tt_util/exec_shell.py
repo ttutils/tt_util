@@ -27,7 +27,8 @@ def check_file(directory: str, filename: str, max_checks: int = 60):
     :param filename:            检查的文件名
     :param max_checks:          最多检测的次数
     """
-    checks = 0
+    checks = 1
+    logging.info(f'本次检查{directory}下的{filename}文件，一共检测{max_checks}次')
 
     while checks < max_checks:
         # 检测文件夹本身是否存在
