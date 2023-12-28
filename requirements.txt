@@ -1,3 +1,4 @@
+dnspython
 pyyaml
 paramiko
 pycryptodome

@@ -90,3 +90,14 @@ qiniu = QiniuFunction()
 ret, info = qiniu.upload_file(local_file, remote_file)
 ```
 
+- check_domain.py
+
+检测域名是否做了dns解析，使用示例：
+
+```python
+if not check_domain(domain):
+	return resp_400()
+else:
+	return resp_200()
+```
+
