@@ -3,6 +3,8 @@
 # @Time : 2023/11/9 9:37
 
 import base64
+import hashlib
+
 from Crypto.Cipher import AES
 
 
@@ -50,3 +52,12 @@ def decrypt_aes(data: str, aes_key: str = ''):
     # 执行解密密并转码返回str
     decrypted_text = str(aes.decrypt(base64_decrypted), encoding='utf-8').replace('\0', '')
     return decrypted_text
+
+
+def md5(data):
+    # 创建 MD5 对象
+    md5 = hashlib.md5()
+    # 将密码转换为字节串并进行哈希
+    md5.update(data.encode('utf-8'))
+    # 返回 MD5 哈希值的十六进制表示
+    return md5.hexdigest()
