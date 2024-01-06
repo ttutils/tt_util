@@ -9,6 +9,9 @@ def read_yaml(key: str, filename: str):
     :param filename: string     配置文件的名字
     :return         *           要读取的值
     """
+    if not os.path.exists(os.getcwd() + '/config/' + filename + '.yaml'):
+        logging.error(f"config目录下没有{filename}.yaml文件，请添加文件！！！")
+        raise SystemExit(0)
     try:
         with open(os.getcwd() + '/config/' + filename + '.yaml', encoding="utf-8") as f:
             value = yaml.load(stream=f, Loader=yaml.FullLoader)
