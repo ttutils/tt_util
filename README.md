@@ -49,6 +49,9 @@ password = ''
 
 ssh = SSHClient(host, password)
 
+# 设置了一个处理策略，即当客户端连接到一个之前未知的主机时，自动将其添加到本地的 known_hosts 文件中，而不会引发 SSHException。
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
 # 执行单行命令
 result_single = ssh.execute_command('ls -l')
 
