@@ -4,3 +4,4 @@ paramiko
 pycryptodome
 qiniu
 docker
+oss2
