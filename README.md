@@ -2,15 +2,17 @@
 
 此项目是根据[@buyfakett](https://github.com/buyfakett)的python使用习惯自己封装打包的包
 
-- yaml_util.py
+此仓库是各种封装的合集，更新可能会略慢于单独封装，可点击跳转到单独封装仓库
+
+- ### [yaml_util.py](https://github.com/ttutils/pyyaml_util)
 
 yaml的各种封装方法，主要使用read_yaml方法，来读取配置，所有配置都放在启动文件同一目录的config文件夹下，传入的filename不需要加.yaml
 
-- uuid_util.py
+- ### [uuid_util.py](https://github.com/ttutils/pyuuid_util)
 
 把uuid的第一个值提取出来，做一层文件夹，可以让oss上快速查询和把第一层文件夹给去掉
 
-- svn_util.py
+- ### [svn_util.py](https://github.com/ttutils/pysvn_util)
 
 操作svn的各种封装方法，使用示例：
 
@@ -39,7 +41,7 @@ logging.error(f'提交错误: {commit_error}')
 logging.info(f'提交返回码: {commit_code}')
 ```
 
-- ssh_util.py
+- ### [ssh_util.py](https://github.com/ttutils/pyssh_util)
 
 ssh到服务器的各种封装方法，使用示例：
 
@@ -64,7 +66,7 @@ result_script = ssh.upload_and_execute_script(local_script_path, remote_script_p
 ssh.close()
 ```
 
-- exec_shell.py
+- ### [exec_shell.py](https://github.com/ttutils/pyexec_shell)
 
 在当前运行的服务器上运行命令和在服务器上检测文件，使用示例：
 
@@ -74,7 +76,7 @@ exec_shell('mkdir /test')
 check_file('/data', '1*')
 ```
 
-- aes_util.py
+- ### [aes_util.py](https://github.com/ttutils/pyaes_util)
 
 aes非对称加密的各种封装方法，使用示例：
 
@@ -86,7 +88,7 @@ print(encrypt)
 print(decrypt_aes(encrypt, key))
 ```
 
-- qiniu_util.py
+- ### [qiniu_util.py](https://github.com/ttutils/pyqiniu_util)
 
 七牛云oss封装，使用示例：
 
@@ -96,7 +98,7 @@ qiniu = QiniuFunction()
 ret, info = qiniu.upload_file(local_file, remote_file)
 ```
 
-- check_domain.py
+- ### [check_domain.py](https://github.com/ttutils/pycheck_domain)
 
 检测域名是否做了dns解析，使用示例：
 
@@ -107,7 +109,7 @@ else:
 	return resp_200()
 ```
 
-- docker_util.py
+- ### [docker_util.py](https://github.com/ttutils/pydocker_util)
 
 检测/控制docker，使用示例：
 
@@ -127,7 +129,7 @@ test.remove_container('postgres')
 test.inspect_container('postgres')
 ```
 
-- alioss_util.py
+- ### [alioss_util.py](https://github.com/ttutils/pyalioss_util)
 
 阿里云oss，使用示例：
 
@@ -154,3 +156,14 @@ objects = oss.list_files_in_directory()
 print(objects)
 ```
 
+- ### [pyresp.py](https://github.com/ttutils/pyresp)
+
+`fastapi`通用返回封装
+
+- ### [oauth2.py](https://github.com/ttutils/pyoauth2_util)
+
+`fastapi`通用token封装
+
+- ### [config_util.py](https://github.com/ttutils/pyconfig_util)
+
+通用配置文件封装
