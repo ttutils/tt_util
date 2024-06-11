@@ -23,7 +23,7 @@ class SSHClient:
         self.connect()
 
     def connect(self):
-        self.client.connect(self.host, port=self.port, username=self.username, password=self.password)
+        self.client.connect(self.host, port=self.port, username=self.username, password=self.password, allow_agent=False, look_for_keys=False, gss_auth=False)
 
     def execute_command(self, command):
         logging.info(f"即将执行命令: {command}")

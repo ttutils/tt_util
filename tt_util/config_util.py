@@ -6,14 +6,23 @@ import sys
 
 class Setting(object):
     def __init__(self):
-        root_dir = os.getcwd()
-        config_file = root_dir + '/config/' + 'setting.yaml'  # 假设这是你的YAML文件名
-        config_path = os.path.join(root_dir, config_file)
+        self.root_dir = os.getcwd()
+        self.default_config_file = self.root_dir + '/config/' + 'setting.default.yaml'
+        self.default_config_path = os.path.join(self.root_dir, self.default_config_file)
+        self.config_file = self.root_dir + '/config/' + 'setting.yaml'
+        self.config_path = os.path.join(self.root_dir, self.config_file)
+        self._load_config(self.default_config_path)
+        self._load_config(self.config_path)
 
+    def _load_config(self, config_path):
+        """
+        config_path: yaml配置文件的地址
+        加载配置文件
+        """
         # 检查是否存在配置文件
         if not os.path.exists(config_path):
             # 退出整个程序
-            logging.error('没有配置文件!!!')
+            logging.error(f'没有配置文件:{config_path}!!!')
             sys.exit()
 
         with open(config_path, 'r', encoding='utf-8') as file:
@@ -30,3 +39,6 @@ class Setting(object):
                 # 如果值不是字典，则直接将该值作为属性添加到实例中
                 attr_name = section.upper()
                 setattr(self, attr_name, value)
+
+
+setting = Setting()

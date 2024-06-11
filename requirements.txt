@@ -1,3 +1,4 @@
+colorlog
 dnspython
 pyyaml
 paramiko
@@ -5,3 +6,4 @@ pycryptodome
 qiniu
 docker
 oss2
+confluent-kafka
